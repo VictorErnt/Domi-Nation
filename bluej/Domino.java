@@ -24,7 +24,7 @@ public class Domino
     
     //Faire le traitement du .csv pour le transformer en bilbliotéque
     
-    private final HashMap<Integer,ArrayList<Integer>> refDomino =biblioDomino;//Pour aller chercher la valur d'un domino
+    private final HashMap<Integer,ArrayList<Integer>> refDomino =biblioDomino;//Pour aller chercher la valeur d'un domino
     Stack rdnpioche = new Stack();
     
     public Domino()

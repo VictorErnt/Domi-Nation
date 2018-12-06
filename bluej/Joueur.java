@@ -15,7 +15,7 @@ public class Joueur
     /**
      * Constructeur d'objets de classe joueur
      */
-    public joueur(int ID, String couleur)
+    public Joueur(int ID, String couleur)
     {
         this.IDJoueur=ID;
         CouleurRoi=couleur;
