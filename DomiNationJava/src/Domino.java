@@ -85,6 +85,38 @@ public class Domino
     public  HashMap<Integer,ArrayList<Integer>> getRefDomino(){
     	return refDomino;
     }
+    
+    //création dela lib avec tous les dominos
+    //import csv
+    public class Csvv throws Exception 
+    {
+
+		BufferedReader br = new BufferedReader(new FileReader("dominos.csv"));
+		String domuni = null;
+		Map<Integer, ArrayList> domino = new HashMap<>();
+		int k=0;
+
+		//Récupération de toutes les données du fichier_______________
+		while ((domuni = br.readLine()) != null)
+		{
+			String data = Arrays.toString(domuni.split(" , "));
+
+			String [] dom = new  String[4];
+
+			for(int j=0; j<4; j++)
+				{
+					if( j==0) data.replaceAll("\\[", " ");
+					dom[j] = data.split(",")[j];
+				}
+
+			ArrayList<String> domin = new ArrayList<String>(Arrays.asList(dom));	
+			domino.put(k, domin);
+			k++;
+		}
+		br.close();
+		domino.remove(0);
+		
+	}
    
 }
 
