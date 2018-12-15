@@ -18,16 +18,18 @@ public class Test {
 		plat.mettreDomino(2, 1, 2, 0);
 		plat.mettreDomino(3, 1, 2, 0);
 		
-		plat.mettreDomino(2, 3, 2, 0);
+		plat.mettreDomino(2, 3, 2,0);
 		plat.mettreDomino(3, 3, 2, 0);
 		plat.mettreDomino(3, 4, 2, 0);
-		plat.mettreDomino(3, 5, 2,0 );
-		plat.mettreDomino(4,4,2,1);
+		plat.mettreDomino(3, 5, 2,0);
+		plat.mettreDomino(4,4,2,0);
 		
+		//plat.mettreDomino(2, 2, 3, 2);
+		plat.mettreDomino(3, 2, 2, 1);
 		Jeu.Score score=new Jeu.Score();
 		
 		//System.out.println(plat.getRoyaume());
-		//System.out.println(score.TeteChercheuseligne(plat, 2, 1, 2));
+		System.out.println(plat.getCaseCouronne(2, 3));
 		System.out.println(score.ScoreRoyaume(plat));
 
 		
