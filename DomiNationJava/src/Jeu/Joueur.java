@@ -2,17 +2,18 @@ package Jeu;
 
 public class Joueur 
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+    
     private int IDJoueur;
     private String CouleurRoi;
-    
+    private Plateau royaume;
 
  
     ////////////////Constructor
-    public Joueur(int ID, String couleur)
+    public Joueur(int ID, String couleur,Plateau royaume)
     {
         this.IDJoueur=ID;
         CouleurRoi=couleur;
+        this.royaume=royaume;
         
     }
 
@@ -29,6 +30,22 @@ public class Joueur
     public String getCouleurRoi (){
         return CouleurRoi;
     }
+
+	public Plateau getRoyaume() {
+		return royaume;
+	}
+
+	public void setIDJoueur(int iDJoueur) {
+		IDJoueur = iDJoueur;
+	}
+
+	public void setCouleurRoi(String couleurRoi) {
+		CouleurRoi = couleurRoi;
+	}
+
+	public void setRoyaume(Plateau royaume) {
+		this.royaume = royaume;
+	}
     
 
 }

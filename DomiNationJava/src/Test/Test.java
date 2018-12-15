@@ -35,7 +35,5 @@ public class Test {
 		
 	}
 	
-	public static void ajout(int e) {
-		e=e+1;
-	}
+
 }
