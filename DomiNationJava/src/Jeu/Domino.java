@@ -16,20 +16,23 @@ public class Domino
      * 6=Champs
      * 7=Mine
      */
+	Csvv csv;
 	private int NbDomino;
     Random random= new Random();
     private HashMap<Integer,ArrayList<Integer>> biblioDomino; 
-    
-    //Faire le traitement du .csv pour le transformer en bilbliotéque
-    
     private final HashMap<Integer,ArrayList<Integer>> refDomino; 
     Stack<Integer> rdnpioche;
     
     
     ///////////////////Constructor
-    public Domino(int NbDomino)
+    public Domino(int NbDomino,Csvv csv)
     {
-    	biblioDomino = new HashMap<Integer,ArrayList<Integer>>(); 
+    	try {
+			biblioDomino = csv.main(biblioDomino);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
     	refDomino =biblioDomino;//Pour aller chercher la valeur d'un domino
     	rdnpioche = new Stack<Integer>();
         //Donner le nombre de domino à utiliser
@@ -39,7 +42,7 @@ public class Domino
     
     //////////////////Methods
     public ArrayList<Integer> returnDomino(int num){
-        return refDomino.get(num);
+        return refDomino.get(num);// Dans la liste c'est Couronne1,Type1,Couronne2,Type2
     }
     
     public ArrayList<Integer> rangerDomino(ArrayList<Integer> list0){

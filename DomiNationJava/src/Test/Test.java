@@ -25,13 +25,14 @@ public class Test {
 		plat.mettreDomino(4,4,2,0);
 		
 		//plat.mettreDomino(2, 2, 3, 2);
-		plat.mettreDomino(3, 2, 2, 1);
+		//plat.mettreDomino(3, 2, 2, 1);
 		Jeu.Score score=new Jeu.Score();
 		
 		//System.out.println(plat.getRoyaume());
-		System.out.println(plat.getCaseCouronne(2, 3));
-		System.out.println(score.ScoreRoyaume(plat));
+		//System.out.println(plat.getCaseCouronne(2, 3));
+		//System.out.println(score.ScoreRoyaume(plat));
 
+		
 		
 	}
 	
