@@ -22,6 +22,18 @@ public class Game {
 		joueur[i-1] = new Joueur(royaume[i-1]);// indice d'un tableau commence à 0
 		JoueurList.add(joueur[i-1]);
 		}
+		/*
+		 * Pour récupérer les joueur et royaume il faut faire 
+		 * joueur[0]
+		 * joueur[1]
+		 * .....
+		 * 
+		 * royaume[0]
+		 * royaume[1]
+		 * .....
+		 */
+		
+		
 		this.NbJoueurs=NbJoueurs;
 		
 		//Mettre le chateau au milieu 
