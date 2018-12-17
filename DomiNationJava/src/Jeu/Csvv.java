@@ -9,15 +9,24 @@ import java.util.*;
 
 public class Csvv {
 	//Lecture du fichier
-	public Csvv()
-	{}
+	
+	public Csvv(HashMap<Integer, ArrayList<Integer>> domino)
+	{
+		 
+		try {
+			domino=main(domino);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Erreur de création de biblioteque");
+		}
+	}
 	public HashMap<Integer, ArrayList<Integer>> main(HashMap<Integer,ArrayList<Integer>> domino) throws Exception 
 	{
 
 		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\leont\\Desktop\\Github\\Domi-Nation\\DomiNationJava\\src\\Test\\dominos.csv"));
 		String domuni = null;
 		//Map<Integer, ArrayList> domino = new HashMap<>();
-		int k=0;
+		int k=1;
 
 		//Récupération de toutes les données du fichier_______________
 		while ((domuni = br.readLine()) != null)
@@ -46,7 +55,6 @@ public class Csvv {
 			k++;
 		}
 		br.close();
-		domino.remove(0);
 		//System.out.println(domino);
 		return domino;
 	}
