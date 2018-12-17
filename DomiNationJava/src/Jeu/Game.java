@@ -1,26 +1,50 @@
 package Jeu;
 
-import java.util.List;
+import java.util.*;
 import java.util.Scanner;
 
 public class Game {
 
 	private Domino domino;
-	private int NbJoueurs;
-	private List<Joueur> JoueurList;
-	private List<Plateau> RoyaumeList;
+	private int nbJoueurs;
+	private ArrayList<Joueur> joueurList;
+	private ArrayList<Plateau> royaumeList;
+	private ArrayList<Roi> roiList;
 	
 	//Constructor,Initialisation et création de tout
-	public Game(int NbJoueurs) {
-		Joueur[] joueur = new Joueur[NbJoueurs];
-		Plateau[] royaume = new Plateau[NbJoueurs];
-		for(int i=1; i<=NbJoueurs; i++){
+	public Game(int nbJoueurs) {
+		 joueurList= new ArrayList<Joueur>();
+		 royaumeList= new ArrayList<Plateau>();
+		 roiList = new ArrayList<Roi>() ;
+		
+		
+		Joueur[] joueur = new Joueur[nbJoueurs];
+		Plateau[] royaume = new Plateau[nbJoueurs];
+		for(int i=1; i<=nbJoueurs; i++){
 			royaume[i-1] = new Plateau(5);// indice d'un tableau commence à 0
-			RoyaumeList.add(royaume[i-1]);
+			royaumeList.add(royaume[i-1]);
 		}
-		for(int i=1; i<=NbJoueurs; i++){
+		for(int i=1; i<=nbJoueurs; i++){
 		joueur[i-1] = new Joueur(royaume[i-1]);// indice d'un tableau commence à 0
-		JoueurList.add(joueur[i-1]);
+		joueurList.add(joueur[i-1]);
+		}
+		if (nbJoueurs==2) {
+			Roi [] roi = new Roi[nbJoueurs*2] ;
+				roi[0] = new Roi (joueur[0],1);
+				roi[1] = new Roi (joueur[0],2);
+				roi[2] = new Roi (joueur[1],3);
+				roi[3] = new Roi (joueur[1],4);
+				for (int i=1 ; i<=nbJoueurs*2; i++) {
+					roiList.add(roi[i-1]);
+					
+				}		
+		}
+		else {
+			Roi[] roi = new Roi[nbJoueurs];
+			for(int i=1; i<=nbJoueurs; i++){
+				roi[i-1] = new Roi (joueur[i-1],i);// indice d'un tableau commence à 0
+				roiList.add(roi[i-1]);
+			}
 		}
 		/*
 		 * Pour récupérer les joueur et royaume il faut faire 
@@ -34,14 +58,14 @@ public class Game {
 		 */
 		
 		
-		this.NbJoueurs=NbJoueurs;
+		this.NbJoueurs=nbJoueurs;
 		
 		//Mettre le chateau au milieu 
-		for(int i=1; i<=NbJoueurs; i++){
+		for(int i=1; i<=nbJoueurs; i++){
 		royaume[i-1].mettreDomino(3, 3, 1, 0);
 		}
 		
-		domino= new Domino(NbJoueurs*12);
+		domino= new Domino(nbJoueurs*12);
 		domino.iniPioche();
 		
 	}
@@ -60,15 +84,15 @@ public class Game {
 	}
 
 	public int getNbJoueurs() {
-		return NbJoueurs;
+		return nbJoueurs;
 	}
 
 	public List<Joueur> getJoueurList() {
-		return JoueurList;
+		return joueurList;
 	}
 
 	public List<Plateau> getRoyaumeList() {
-		return RoyaumeList;
+		return royaumeList;
 	}
 
 	public void setDomino(Domino domino) {
@@ -76,15 +100,15 @@ public class Game {
 	}
 
 	public void setNbJoueurs(int nbJoueurs) {
-		NbJoueurs = nbJoueurs;
+		nbJoueurs = nbJoueurs;
 	}
 
 	public void setJoueurList(List<Joueur> joueurList) {
-		JoueurList = joueurList;
+		joueurList = joueurList;
 	}
 
 	public void setRoyaumeList(List<Plateau> royaumeList) {
-		RoyaumeList = royaumeList;
+		royaumeList = royaumeList;
 	}
 	
 }
