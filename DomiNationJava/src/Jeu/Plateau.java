@@ -12,7 +12,7 @@ public class Plateau
     private ArrayList<Integer> DemiDomino;
 
    /////////////////Constructor
-    public Plateau(int longRoyaume)
+    public Plateau(int longRoyaume, int id)
     {
     	this.longRoyaume=longRoyaume;
       Royaume= new ArrayList<ArrayList<ArrayList<Integer>>>();
@@ -28,10 +28,11 @@ public class Plateau
           Royaume.add(Colonne);
       }
       //Pour Choisir une case faire: Royaume.get(colonne-1).get(ligne-1).set(0 ou 1,Valeur)
+      setIdRoyaume(id);
     }
     
-   
-	//////////////////Methods
+    
+    //////////////////Methods
     public int getCasetype (int ligne, int colonne){
         return (Royaume.get(colonne-1).get(ligne-1).get(0));
     }

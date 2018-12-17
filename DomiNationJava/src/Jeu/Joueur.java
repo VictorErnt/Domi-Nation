@@ -3,16 +3,16 @@ package Jeu;
 public class Joueur 
 {
     
-  
+    private int IDJoueur;
     private String CouleurRoi;
     private Plateau royaume;
 
  
     ////////////////Constructor
-    public Joueur(Plateau royaume)
+    public Joueur(int ID, String couleur,Plateau royaume)
     {
-        
-        //CouleurRoi=couleur;
+        this.IDJoueur=ID;
+        CouleurRoi=couleur;
         this.royaume=royaume;
         
     }
@@ -22,7 +22,11 @@ public class Joueur
     
     
     /////////////////Get and Set
-  
+        public int getIDJoueur () 
+    {
+        return IDJoueur;
+    }
+    
     public String getCouleurRoi (){
         return CouleurRoi;
     }
@@ -31,7 +35,9 @@ public class Joueur
 		return royaume;
 	}
 
-
+	public void setIDJoueur(int iDJoueur) {
+		IDJoueur = iDJoueur;
+	}
 
 	public void setCouleurRoi(String couleurRoi) {
 		CouleurRoi = couleurRoi;

@@ -16,7 +16,7 @@ public class Domino
      * 6=Champs
      * 7=Mine
      */
-	
+	Csvv csv;
 	private int NbDomino;
     Random random= new Random();
     private HashMap<Integer,ArrayList<Integer>> biblioDomino; 
@@ -25,11 +25,15 @@ public class Domino
     
     
     ///////////////////Constructor
-    public Domino(int NbDomino)
+    public Domino(int NbDomino,Csvv csv)
     {
-    	biblioDomino=new HashMap<Integer,ArrayList<Integer>>(); 
-    	Csvv csv=new Csvv(biblioDomino);
-    	refDomino =new HashMap<Integer,ArrayList<Integer>>(biblioDomino);//Pour aller chercher la valeur d'un domino
+    	try {
+			biblioDomino = csv.main(biblioDomino);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    	refDomino =biblioDomino;//Pour aller chercher la valeur d'un domino
     	rdnpioche = new Stack<Integer>();
         //Donner le nombre de domino à utiliser
         this.NbDomino=NbDomino;
@@ -46,17 +50,17 @@ public class Domino
         return list0;
     }
     
-    public void iniPioche(){
+    public void iniPioche(int nbDomidujeu){
         int r=0;
         int compteur=0;
-        Collection<Integer> key;
+
         int domiPioche=0;
         int L=0; 
-        for(int i=1; i<=NbDomino;i++) {
-            key=biblioDomino.keySet();
+        for(int i=0; i<nbDomidujeu;i++) {
+            Collection<Integer> key=biblioDomino.keySet();
             L=key.size();
             do {
-                r=random.nextInt(L+1);
+                r=random.nextInt(L);
             }while(r==0);
             Iterator<Integer> it=key.iterator();
             compteur=0;
@@ -87,16 +91,6 @@ public class Domino
     public  HashMap<Integer,ArrayList<Integer>> getRefDomino(){
     	return refDomino;
     }
-
-
-	public HashMap<Integer, ArrayList<Integer>> getBiblioDomino() {
-		return biblioDomino;
-	}
-
-
-	public void setBiblioDomino(HashMap<Integer, ArrayList<Integer>> biblioDomino) {
-		this.biblioDomino = biblioDomino;
-	}
 }
     
    
