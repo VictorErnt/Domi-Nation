@@ -3,6 +3,8 @@ package Jeu;
 import java.util.*;
 import java.util.Scanner;
 
+import JeuV2.Plateau;
+
 public class Game {
 
 	private Domino domino;
@@ -58,7 +60,7 @@ public class Game {
 		 */
 		
 		
-		this.NbJoueurs=nbJoueurs;
+		//this.NbJoueurs=nbJoueurs;
 		
 		//Mettre le chateau au milieu 
 		for(int i=1; i<=nbJoueurs; i++){

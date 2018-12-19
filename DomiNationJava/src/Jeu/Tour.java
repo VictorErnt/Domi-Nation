@@ -1,5 +1,7 @@
 package Jeu;
 
+import JeuV2.Plateau;
+
 public class Tour {
 
 	public Tour (){

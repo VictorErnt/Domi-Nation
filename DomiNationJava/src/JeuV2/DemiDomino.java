@@ -1,12 +1,12 @@
-package Jeu;
+package JeuV2;
 import java.util.*;
 
-public class Demi_domino {
+public class DemiDomino {
 	private String type;
 	private int couronnes;
 	
 	
-	public Demi_domino(int couronnes,String type) {
+	public DemiDomino(int couronnes,String type) {
 		this.type = type;
 		this.couronnes = couronnes;
 	}
