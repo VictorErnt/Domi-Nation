@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 public class Score {
 	
-	private int Score=0;
-	private int Couronnes=0;
-	private int NbCases=0;
+	private int Score;
+	private int Couronnes;
+	private int NbCases;
 
 	public Score() {
-
+		Score=0;
+		Couronnes=0;
+		NbCases=0;
 	}
 
 	public int ScoreRoyaume(Plateau royaume) {
 		String type="note";
+		int Score=0;
 		for (int ligne = 1; ligne < royaume.getLongRoyaume()+1; ligne++) {
 			for (int colonne = 1; colonne < royaume.getLongRoyaume()+1; colonne++) {
 				type=royaume.renvoieCase(ligne, colonne).getType();

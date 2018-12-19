@@ -1,9 +1,9 @@
-package Jeu;
+package JeuV2;
 
 import java.util.*;
 import java.util.Scanner;
 
-import JeuV2.Plateau;
+import Jeu.Domino;
 
 public class Game {
 
@@ -11,13 +11,11 @@ public class Game {
 	private int nbJoueurs;
 	private ArrayList<Joueur> joueurList;
 	private ArrayList<Plateau> royaumeList;
-	private ArrayList<Roi> roiList;
 	
 	//Constructor,Initialisation et création de tout
 	public Game(int nbJoueurs) {
 		 joueurList= new ArrayList<Joueur>();
 		 royaumeList= new ArrayList<Plateau>();
-		 roiList = new ArrayList<Roi>() ;
 		
 		
 		Joueur[] joueur = new Joueur[nbJoueurs];
@@ -30,6 +28,7 @@ public class Game {
 		joueur[i-1] = new Joueur(royaume[i-1]);// indice d'un tableau commence à 0
 		joueurList.add(joueur[i-1]);
 		}
+		/*
 		if (nbJoueurs==2) {
 			Roi [] roi = new Roi[nbJoueurs*2] ;
 				roi[0] = new Roi (joueur[0],1);
@@ -48,6 +47,10 @@ public class Game {
 				roiList.add(roi[i-1]);
 			}
 		}
+		*/
+		
+		
+		
 		/*
 		 * Pour récupérer les joueur et royaume il faut faire 
 		 * joueur[0]
@@ -64,11 +67,11 @@ public class Game {
 		
 		//Mettre le chateau au milieu 
 		for(int i=1; i<=nbJoueurs; i++){
-		royaume[i-1].mettreDomino(3, 3, 1, 0);
+		royaume[i-1].renvoieCase(3, 3).setType("Chateau");
+		royaume[i-1].renvoieCase(3, 3).setCouronnes(0);
 		}
 		
-		domino= new Domino(nbJoueurs*12);
-		domino.iniPioche();
+		
 		
 	}
 	

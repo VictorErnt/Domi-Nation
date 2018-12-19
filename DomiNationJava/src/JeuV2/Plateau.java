@@ -1,8 +1,6 @@
 package JeuV2;
 
 import java.util.*;
-
-import Jeu.Joueur;
 public class Plateau 
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre

@@ -1,6 +1,4 @@
-package Jeu;
-
-import JeuV2.Plateau;
+package JeuV2;
 
 public class Joueur 
 {

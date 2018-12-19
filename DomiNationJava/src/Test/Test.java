@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import Jeu.*;
+import JeuV2.Joueur;
 import JeuV2.Plateau;
 
 
