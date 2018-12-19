@@ -10,19 +10,12 @@ import java.util.*;
 public class Csvv {
 	//Lecture du fichier
 	
-	public Csvv(HashMap<Integer, ArrayList<Integer>> domino)
+	public  Csvv(HashMap<Integer, ArrayList<Integer>> domino)  throws Exception 
 	{
-		 
-		try {
-			domino=main(domino);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("Erreur de création de biblioteque");
-		}
-	}
-	public HashMap<Integer, ArrayList<Integer>> main(HashMap<Integer,ArrayList<Integer>> domino) throws Exception 
-	{
-
+		Tuile [] tuile= new Tuile[49]; 
+		Demi_domino [] demiDom=new Demi_domino[2];
+	
+	
 		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\leont\\Desktop\\Github\\Domi-Nation\\DomiNationJava\\src\\Test\\dominos.csv"));
 		String domuni = null;
 		//Map<Integer, ArrayList> domino = new HashMap<>();
@@ -44,19 +37,16 @@ public class Csvv {
 			ArrayList<String> domin = new ArrayList<String>(Arrays.asList(dom));	
 			ArrayList<Integer> dominNb = new ArrayList<Integer>();
 		
-			
-			dominNb.add(Integer.parseInt(String.valueOf(domin.get(0).charAt(1)),10));  
-			dominNb.add(Integer.parseInt(domin.get(1),10)); 
-			dominNb.add(Integer.parseInt(domin.get(2),10)); 
-			dominNb.add(Integer.parseInt(String.valueOf(domin.get(3).charAt(0)),10));  
-			domino.put(k, dominNb);
-			
-	
+			demiDom[0]=new Demi_domino (Integer.parseInt(String.valueOf(domin.get(0).charAt(1)),10), domin.get(1));
+			demiDom[1]=new Demi_domino (Integer.parseInt(String.valueOf(domin.get(2).charAt(0)),10), domin.get(3));
+			tuile[k]=new Tuile (demiDom[0],demiDom[1]);
+
+			System.out.println(demiDom[0]);
 			k++;
 		}
 		br.close();
-		//System.out.println(domino);
-		return domino;
+		System.out.println(tuile);
+		return ;
 	}
 
 }
