@@ -19,11 +19,11 @@ public class Plateau
 	//////////////////Methods
     
     public void mettreDomino(int ligne, int colonne, DemiDomino demi){
-        royaume[ligne-1][colonne-1]=demi;
+        royaume[ligne][colonne]=demi;
     }
 
     public DemiDomino renvoieCase(int ligne, int colonne) {
-    	return royaume[ligne-1][colonne-1];
+    	return royaume[ligne][colonne];
     }
 
     /////////////////////Methods Get and Set
