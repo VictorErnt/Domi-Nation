@@ -19,7 +19,11 @@ public class Score {
 		int Score=0;
 		for (int ligne = 1; ligne < royaume.getLongRoyaume()+1; ligne++) {
 			for (int colonne = 1; colonne < royaume.getLongRoyaume()+1; colonne++) {
+				try{
 				type=royaume.renvoieCase(ligne, colonne).getType();
+				}catch(Exception e) {
+					type="note";
+				}
 				
 				if (type.equals("Chateau")||type.equals("note")) {
 				} else {
@@ -28,6 +32,7 @@ public class Score {
 					 Exploration(royaume,ligne,colonne,type);
 					 this.Score=Score+NbCases*Couronnes;
 				}
+		
 
 			}
 		}
@@ -72,7 +77,7 @@ public class Score {
 		Exploreur.add(CasesduBas);
 		
 		while(Exploreur.size()!=0) {
-			System.out.println(Exploreur);
+			//System.out.println(Exploreur);
 			//System.out.println(Couronnes);
 			Exploreursuivant = new  ArrayList<ArrayList<ArrayList<Integer>>>();
 			for(int i=0; i<Exploreur.size();i++) {
