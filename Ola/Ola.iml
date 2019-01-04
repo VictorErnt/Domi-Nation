@@ -10,18 +10,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/slick/lib/jinput.jar!/" />
-          <root url="jar://$MODULE_DIR$/slick/lib/lwjgl.jar!/" />
-          <root url="jar://$MODULE_DIR$/slick/lib/lwjgl_util.jar!/" />
-          <root url="jar://$MODULE_DIR$/slick/lib/slick.jar!/" />
+          <root url="file://$MODULE_DIR$/slick/lib" />
         </CLASSES>
-        <JAVADOC>
-          <root url="file://$MODULE_DIR$/slick/javadoc" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/slick/src" />
-          <root url="file://$MODULE_DIR$/slick/tools" />
-        </SOURCES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/slick/lib" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="library" name="slick" level="project" />
