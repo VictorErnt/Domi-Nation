@@ -3,11 +3,15 @@ package Test;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Stack;
 
-import Jeu.*;
+import JeuV2.Csvv;
 import JeuV2.DemiDomino;
 import JeuV2.Joueur;
+import JeuV2.Pioche;
 import JeuV2.Plateau;
+import JeuV2.Tuile;
 
 
 public class Test {
@@ -52,17 +56,8 @@ public class Test {
 		
 		//System.out.println(plat.getRoyaume());
 		//System.out.println(plat.getCaseCouronne(2, 3));
-		System.out.println(score.ScoreRoyaume(plat));
+		//System.out.println(score.ScoreRoyaume(plat));
 		
-		
-		
-		
-		Jeu.Domino domino=new Jeu.Domino(48);
-		domino.iniPioche();
-		HashMap<Integer, ArrayList<Integer>> o = domino.getRefDomino();
-		//System.out.println(domino.Pioche());
-		//System.out.println(domino.getBiblioDomino());
-		//System.out.println(o);
 		
 		
 		
@@ -74,9 +69,46 @@ public class Test {
 		
 		
 		
+		/*c'est le test de mes fonctions pour voir si elles marchent: c'est ok, vous pouvez revérifier */
+	/*	
+		Plateau royaume1;
+		Plateau royaume2;
+		Plateau royaume3;
 		
+		Joueur joueur1= new Joueur( royaume1 = new Plateau(5) , "bleu");
+		Joueur joueur2= new Joueur( royaume2 = new Plateau(5) , "vert");
+		Joueur joueur3= new Joueur( royaume2 = new Plateau(5) , "rouge");
+		
+		ArrayList Roi = new ArrayList();
+		Roi.add(joueur1.getCouleurRoi());
+		Roi.add(joueur2.getCouleurRoi());
+		Roi.add(joueur3.getCouleurRoi());
+		
+		System.out.println(Roi.size());
+		System.out.println(mélangerRoi(Roi));
+		
+		Stack piocheRoi=new Stack();
+		piocheRoi = pileRoi(mélangerRoi(Roi));
+		System.out.println(piocherRoi(piocheRoi));
+		
+		
+		
+		*/
+		
+		Random random =new Random();
+		Csvv csvu = null;
+		try {
+			csvu= new Csvv();
+			//System.out.println(csvu.getTuiles()[0].getDemiDomino1().getType());
+		} catch (Exception e) {
+			System.out.println("Erreur .csv");
+			e.printStackTrace();
+		}
+		
+		Pioche pioche=new Pioche(csvu.getTuiles(),48);
+		System.out.println(pioche.piocheTuile().getDemiDomino1().getType());
+
 		
 	}
-	
 
 }

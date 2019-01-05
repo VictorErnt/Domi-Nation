@@ -19,7 +19,7 @@ public class Pioche {
 		this.nbDominoJeu=nbDominoJeu;
 		rdnPioche=new Stack<Tuile>();
 		random= new Random();
-		
+		iniPioche();
 	}
 	
 	public ArrayList<Tuile> mettreArray(Tuile[] deck,ArrayList<Tuile> list) {
@@ -35,16 +35,20 @@ public class Pioche {
         int L=0; 
         for(int i=1; i<=nbDominoJeu;i++) {
             L=deckList.size();
-            do {
-                r=random.nextInt(L+1);
-            }while(r==0);
+            
+            if (i==48) {
+            	this.rdnPioche.push(deckList.get(0));
+            }
+            else{
+            r=random.nextInt(L);
             this.rdnPioche.push(deckList.get(r));
             deckList.remove(r);
+            }
         }
         
     }
     
-    public Tuile Piocher(){
+    public Tuile piocheTuile(){
         return rdnPioche.pop();
     }
     

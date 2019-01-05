@@ -3,12 +3,12 @@ package JeuV2;
 import java.util.*;
 import java.util.Scanner;
 
-import Jeu.Domino;
 
 public class Game {
 
-	private Domino domino;
-	private int nbJoueurs;
+	Pioche pioche;
+	Csvv csv;
+	private int nbJoueurs; 
 	private ArrayList<Joueur> joueurList;
 	private ArrayList<Plateau> royaumeList;
 	
@@ -70,7 +70,16 @@ public class Game {
 		royaume[i-1].renvoieCase(3, 3).setType("Chateau");
 		royaume[i-1].renvoieCase(3, 3).setCouronnes(0);
 		}
+		csv = null;
+		try {
+			csv= new Csvv();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Erreur .csv");
+			e.printStackTrace();
+		}
 		
+		pioche=new Pioche(csv.getTuiles(),nbJoueurs*12);
 		
 		
 	}
@@ -84,9 +93,6 @@ public class Game {
 	
 	
 ///////////Get & Set
-	public Domino getDomino() {
-		return domino;
-	}
 
 	public int getNbJoueurs() {
 		return nbJoueurs;
@@ -98,10 +104,6 @@ public class Game {
 
 	public List<Plateau> getRoyaumeList() {
 		return royaumeList;
-	}
-
-	public void setDomino(Domino domino) {
-		this.domino = domino;
 	}
 
 	public void setNbJoueurs(int nbJoueurs) {
