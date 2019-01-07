@@ -62,9 +62,7 @@ public class Game {
 		 * .....
 		 */
 		
-		
-		//this.NbJoueurs=nbJoueurs;
-		
+		this.nbJoueurs=nbJoueurs;
 		//Mettre le chateau au milieu 
 		for(int i=1; i<=nbJoueurs; i++){
 		royaume[i-1].renvoieCase(3, 3).setType("Chateau");

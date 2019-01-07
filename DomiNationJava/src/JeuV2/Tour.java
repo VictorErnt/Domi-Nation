@@ -17,9 +17,14 @@ public class Tour {
 	/*
 	 * Créer une fonction qui détermine quels places sont disponible
 	 */
-	public static void possibilitésDomino(Plateau royaume, Tuile tuile) {
-		String type="note";
-		int Score=0;
+	public void possibilitésDomino(Plateau royaume, Tuile tuile) {
+		String type="rien";
+		String typeDemi1= tuile.getDemiDomino1().getType();
+		String typeDemi2= tuile.getDemiDomino2().getType();
+		String[] typeCasesAutour;
+		ArrayList<ArrayList<Integer>> casesRetenu= new ArrayList<ArrayList<Integer>>();//case vide avec un demidomino à coté
+		ArrayList<Integer> notation;//sert à noté les cases retenu
+		
 		for (int ligne = 1; ligne < royaume.getLongRoyaume()+1; ligne++) {
 			for (int colonne = 1; colonne < royaume.getLongRoyaume()+1; colonne++) {
 				try{
@@ -27,9 +32,30 @@ public class Tour {
 				}catch(Exception e) {
 					type="rien";
 				}
-				
+				if(type.equals("rien")) {
+					typeCasesAutour=new String[4];
+					typeCasesAutour=CaseB_H_D_Gtype(ligne,colonne,royaume);
+					if (typeCasesAutour[0].equals("rien")||typeCasesAutour[1].equals("rien")
+							||typeCasesAutour[2].equals("rien")||typeCasesAutour[3].equals("rien")) {
+					}
+					else {
+						for(int autour=0;autour<4;autour++) {
+							if(typeCasesAutour[autour].equals(typeDemi1)) {
+								
+							}
+							if(typeCasesAutour[autour].equals(typeDemi2)){
+								
+							}
+							if(typeCasesAutour[autour].equals(typeDemi1) && typeCasesAutour[autour].equals(typeDemi2) ||typeCasesAutour[autour].equals("Chateau")) {
+								
+							}
+						}
+						}
+					}
 			}
 		}
+		
+		
 		
 	}
 	
