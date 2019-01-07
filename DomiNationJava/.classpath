@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/slick2D">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Victor/Desktop/GitHub/Domi-Nation/DomiNationJava/slick"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/leont/Desktop/Github/Domi-Nation/DomiNationJava/slick"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

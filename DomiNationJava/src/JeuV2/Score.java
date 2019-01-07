@@ -29,7 +29,7 @@ public class Score {
 				} else {
 					 this.Couronnes=0;
 					 this.NbCases=0;
-					 Exploration(royaume,ligne,colonne,type);
+					 exploration(royaume,ligne,colonne,type);
 					 this.Score=Score+NbCases*Couronnes;
 				}
 		
@@ -41,7 +41,7 @@ public class Score {
 	
 	
 
-	public String[] CaseBetD(int ligne, int colonne, Plateau royaume) {
+	public String[] CaseBetDtype(int ligne, int colonne, Plateau royaume) {
 		
 		String typeB ;
 		String typeD;
@@ -68,12 +68,12 @@ public class Score {
 		return cases;
 	}
 	
-	
-	public void Exploration(Plateau royaume, int l, int c, String type) {
+	//exploration repète l'opération teteChercheuse ligne sur chaque branche de "l'arbre" 
+	public void exploration(Plateau royaume, int l, int c, String type) {
 		ArrayList<ArrayList<ArrayList<Integer>>> Exploreur = new  ArrayList<ArrayList<ArrayList<Integer>>>();
 		ArrayList<ArrayList<ArrayList<Integer>>> Exploreursuivant = new  ArrayList<ArrayList<ArrayList<Integer>>>();
 		ArrayList<ArrayList<Integer>> CasesduBas; //= new ArrayList<ArrayList<Integer>>();
-		CasesduBas=TeteChercheuseligne(royaume,l,c,type);
+		CasesduBas=teteChercheuseLigne(royaume,l,c,type);
 		Exploreur.add(CasesduBas);
 		
 		while(Exploreur.size()!=0) {
@@ -82,7 +82,7 @@ public class Score {
 			Exploreursuivant = new  ArrayList<ArrayList<ArrayList<Integer>>>();
 			for(int i=0; i<Exploreur.size();i++) {
 				for (int k=0;k<Exploreur.get(i).size();k++) {
-					 CasesduBas=TeteChercheuseligne(royaume,Exploreur.get(i).get(k).get(0),Exploreur.get(i).get(k).get(1),type);
+					 CasesduBas=teteChercheuseLigne(royaume,Exploreur.get(i).get(k).get(0),Exploreur.get(i).get(k).get(1),type);
 					 Exploreursuivant.add(CasesduBas);
 				}
 			}
@@ -90,20 +90,21 @@ public class Score {
 		}
 	}
 	
-		
-	public ArrayList<ArrayList<Integer>> TeteChercheuseligne(Plateau royaume, int ligne, int colonne,String type) {
+	//teteChercheuseLigne: sur toute une ligne va répété torpille, donc coche toute une ligne+garde en mémoire celle du meme type en bas et les coche
+	
+	public ArrayList<ArrayList<Integer>> teteChercheuseLigne(Plateau royaume, int ligne, int colonne,String type) {
 		ArrayList<ArrayList<Integer>> casesTypeBas = new ArrayList<ArrayList<Integer>>();
-		Torpille(royaume,ligne,colonne,type,casesTypeBas);
+		torpille(royaume,ligne,colonne,type,casesTypeBas);
 		return casesTypeBas;
 		
 	}
 	
 	
-	
-	public void Torpille(Plateau royaume, int ligne, int colonne, String type,ArrayList<ArrayList<Integer>> casesTypeBas)  {
+	//Torpille: va coché une case et repéré si celle du bas du même type et la coché si telle est le cas
+	public void torpille(Plateau royaume, int ligne, int colonne, String type,ArrayList<ArrayList<Integer>> casesTypeBas)  {
 		String[] CasesAutour = new String[2];
 		ArrayList<Integer> note;
-		CasesAutour=CaseBetD(ligne,colonne,royaume);
+		CasesAutour=CaseBetDtype(ligne,colonne,royaume);
 		
 		this.NbCases++;
 		this.Couronnes=Couronnes+royaume.renvoieCase(ligne, colonne).getCouronnes();
@@ -122,7 +123,7 @@ public class Score {
 			
 		}
 		if(CasesAutour[1].equals(type)) {
-			Torpille(royaume,ligne,colonne+1,type,casesTypeBas);
+			torpille(royaume,ligne,colonne+1,type,casesTypeBas);
 		}
 	
 	}
