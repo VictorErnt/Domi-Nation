@@ -1,14 +1,23 @@
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+ class StateGame extends StateBasedGame {
+public static void main(String[] args) throws SlickException {
+        new AppGameContainer(new StateGame(), 800, 600, false).start();
+        }
 
-public class Main
-{
-    static private AppGameContainer app;
+public StateGame() {
+        super("Lesson 15 :: StateGame");
+        }
 
-    public static void main( String[] args ) throws SlickException
-    {
-        app = new AppGameContainer( new WindowGame() );
-        app.setDisplayMode( 640, 480, false );
-        app.start();
-    }
-}
+/**
+ * Ici il suffit d'ajouter nos deux boucles de jeux.
+ * La première ajoutèe sera celle qui sera utilisée au début
+ */
+@Override
+public void initStatesList(GameContainer container)  {
+        addState(new WindowGame());
+        //addState(new MapGameState());
+        }
+        }
